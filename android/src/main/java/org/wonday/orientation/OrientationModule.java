@@ -104,14 +104,6 @@ public class OrientationModule extends ReactContextBaseJavaModule implements Ori
             }
         };
 
-        if (mOrientationListener.canDetectOrientation()) {
-           FLog.d(ReactConstants.TAG, "orientation detect enabled.");
-           mOrientationListener.enable();
-        } else {
-           FLog.d(ReactConstants.TAG, "orientation detect disabled.");
-           mOrientationListener.disable();
-        }
-
         mReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -160,6 +152,16 @@ public class OrientationModule extends ReactContextBaseJavaModule implements Ori
     public void getOrientation(Callback callback) {
         String orientation = getCurrentOrientation();
         callback.invoke(orientation);
+    }
+    @ReactMethod
+    public void enable() {
+        if (mOrientationListener.canDetectOrientation()) {
+            FLog.d(ReactConstants.TAG, "orientation detect enabled.");
+            mOrientationListener.enable();
+        } else {
+            FLog.d(ReactConstants.TAG, "orientation detect disabled.");
+            mOrientationListener.disable();
+        }
     }
 
     @ReactMethod

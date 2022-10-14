@@ -51,6 +51,10 @@ export default class Orientation {
     return locked;
   };
 
+  static enable = () => {
+    // has enable
+  };
+
   static lockToPortrait = () => {
     locked = true;
     OrientationNative.lockToPortrait();

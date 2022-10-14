@@ -59,6 +59,8 @@ declare class Orientation {
 
   static isLocked(): boolean;
 
+  static enable(): boolean;
+
   static lockToPortrait(): void;
 
   static lockToLandscape(): void;
